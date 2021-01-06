@@ -43,6 +43,8 @@ parser.add_argument('--no-shared', default=False,
 
 
 if __name__ == '__main__':
+    mp.set_start_method("spawn") # very important! without this line, the program will get stuck on p.join()
+
     os.environ['OMP_NUM_THREADS'] = '1'
     os.environ['CUDA_VISIBLE_DEVICES'] = ""
 
